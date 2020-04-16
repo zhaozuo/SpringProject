@@ -3,9 +3,9 @@ package cn.sdut.jdbc;
 import java.util.List;
 
 public interface AccountDao {
-    public int addAccount(Account account);
-    public int updateAccount(Account account);
-    public int deleteAccount(int id);
-    public Account findAccountById(int id);
-    public List<Account> findAllAccount();
+    int addAccount(Account account);
+    int updateAccount(Account account);
+    int deleteAccount(int id);
+    Account findAccountById(int id);
+    List<Account> findAllAccount();
 }
