@@ -3,6 +3,9 @@ package cn.sdut.jdbc;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -63,6 +66,7 @@ public class AccountDaoImpl implements AccountDao {
      * @param money   收款金额
      */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
     public void transfer(String outUser, String inUser, Double money) {
         this.jdbcTemplate.update("update account set balance = balance + ?" +
                 "where username = ?", money, inUser);
