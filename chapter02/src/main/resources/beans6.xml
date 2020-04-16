@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 方法1 -->
+    <!--使用context命名空间，在配置文件中开启相应的注解处理器-->
+    <!--<context:annotation-config />
+    &lt;!&ndash;分别定义三个bean实例&ndash;&gt;
+    <bean id="userDao" class="cn.sdut.annotation.UserDaoImpl" />
+    <bean id="userService" class="cn.sdut.annotation.UserServiceImpl" />
+    <bean id="userController" class="cn.sdut.annotation.UserController" />-->
+
+    <!-- 方法2 -->
+    <!--使用context命名空间，通知Spring扫描指定包下所有Bean类，进行注解解析-->
+    <context:component-scan base-package="cn.sdut.annotation" />
+
+    <!-- 方法3 -->
+    <!--使用Bean元素的autowire属性完成自动装配-->
+    <!--<bean id="userDao" class="cn.sdut.annotation.UserDaoImpl" />
+    <bean id="userService" class="cn.sdut.annotation.UserServiceImpl" autowire="byName" />
+    <bean id="userController" class="cn.sdut.annotation.UserController" autowire="byName" />-->
+</beans>
