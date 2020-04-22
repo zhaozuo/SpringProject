@@ -6,6 +6,11 @@ Desktop.ini
 # Compiled class file
 *.class
 
+# About IntelliJ
+*.iml
+/.idea/
+/out/
+
 # Log file
 *.log
 
@@ -27,6 +32,8 @@ Desktop.ini
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 # Project exclude paths
+/chapter01/target/
 /chapter02/target/
 /chapter03/target/
 /chapter04/target/
+/chapter05/target/
