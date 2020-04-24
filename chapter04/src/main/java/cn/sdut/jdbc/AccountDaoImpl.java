@@ -45,7 +45,9 @@ public class AccountDaoImpl implements AccountDao {
         String sql = "select * from account where id = ?";
         /*创建一个新的BeanPropertyRowMapper对象*/
         RowMapper<Account> rowMapper = new BeanPropertyRowMapper<>(Account.class);
-        return this.jdbcTemplate.queryForObject(sql, rowMapper, id);
+        //return this.jdbcTemplate.queryForObject(sql, rowMapper, id);
+        List<Account> accountList = jdbcTemplate.query(sql, rowMapper, id);
+        return accountList.isEmpty()?null:accountList.get(0);
     }
 
     @Override

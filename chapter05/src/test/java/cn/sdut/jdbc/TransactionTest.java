@@ -1,5 +1,6 @@
 package cn.sdut.jdbc;
 
+import cn.sdut.jdbc.AccountDao;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
