@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sdut.dao.AccountDao">
+    <select id="findAll" resultType="cn.sdut.domain.Account">
+        select * from account
+    </select>
+    <select id="findAccountById" resultType="cn.sdut.domain.Account">
+        select * from account where id = #{id}
+    </select>
+    <insert id="addAccount" parameterType="cn.sdut.domain.Account">
+        insert into account(id, username, balance) values (#{id}, #{username}, #{balance})
+    </insert>
+    <select id="findAccountByName" parameterType="String" resultType="cn.sdut.domain.Account">
+        select * from account where username like concat('%',#{name},'%')
+    </select>
+    <select id="findTotal" resultType="int">
+        select count(id) from account
+    </select>
+</mapper>
