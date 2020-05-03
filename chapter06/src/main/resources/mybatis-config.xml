@@ -3,23 +3,32 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!--mybatis主配置文件-->
 <configuration>
+    <!--外部配置文件-->
+    <properties resource="db.properties" />
+    <!--配置别名-->
+    <typeAliases>
+        <!--<typeAlias type="cn.sdut.domain.Account" alias="Account" />-->
+        <package name="cn.sdut.domain"/>
+    </typeAliases>
     <!--配置环境-->
     <environments default="mysql">
         <!--配置mysql的数据库环境-->
         <environment id="mysql">
             <!--使用JDBC的事务管理-->
+            <!--如果你正在使用 Spring + MyBatis，则没有必要配置事务管理器，因为 Spring 模块会使用自带的管理器来覆盖前面的配置。-->
             <transactionManager type="JDBC"/>
             <!--配置数据源（连接池）-->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Shanghai"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
     <!--Mapper的位置，注意“/”-->
     <mappers>
-        <mapper resource="cn/sdut/dao/AccountMapper.xml" />
+        <!--<mapper resource="cn/sdut/dao/AccountMapper.xml" />-->
+        <package name="cn.sdut.dao"/>
     </mappers>
 </configuration>
