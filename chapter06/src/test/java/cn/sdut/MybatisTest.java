@@ -49,13 +49,14 @@ public class MybatisTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
         Account account = new Account();
-        account.setUsername("中文");
+        account.setUsername("test");
         account.setBalance(500.0);
         int num;
         try {
             num = accountDao.addAccount(account);
             sqlSession.commit();
             System.out.println("成功插入"+num+"条数据");
+            System.out.println("Account id:"+account.getId());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("插入数据失败");
