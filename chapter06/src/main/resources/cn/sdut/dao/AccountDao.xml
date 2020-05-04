@@ -20,4 +20,21 @@
     <select id="findTotal" resultType="int">
         select count(id) from account
     </select>
+    <select id="findAccountByCondition" parameterType="Account" resultType="Account">
+        select * from account
+        <where>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+        </where>
+    </select>
+    <select id="findAccountByIds" parameterType="List" resultType="Account">
+        select * from account where id in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

@@ -10,4 +10,6 @@ public interface AccountDao {
     int addAccount(Account account);
     List<Account> findAccountByName(String name);
     int findTotal();
+    Account findAccountByCondition(Account account);
+    List<Account> findAccountByIds(List<Integer> list);
 }

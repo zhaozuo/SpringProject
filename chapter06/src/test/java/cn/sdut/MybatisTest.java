@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MybatisTest {
@@ -81,5 +82,26 @@ public class MybatisTest {
         AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
         System.out.println(accountDao.findTotal());
         sqlSession.close();
+    }
+
+    @Test
+    public void findByCondition(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
+        Account a = new Account();
+        a.setId(1);
+        Account account = accountDao.findAccountByCondition(a);
+        System.out.println(account);
+    }
+
+    @Test
+    public void findByIds(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
+        List<Integer> list = List.of(1,2,3);
+        List<Account> accounts = accountDao.findAccountByIds(list);
+        for (Account account: accounts){
+            System.out.println(account);
+        }
     }
 }

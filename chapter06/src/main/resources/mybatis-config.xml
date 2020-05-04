@@ -28,7 +28,9 @@
     </environments>
     <!--Mapper的位置，注意“/”-->
     <mappers>
-        <!--<mapper resource="cn/sdut/dao/AccountMapper.xml" />-->
+        <!--<mapper resource="cn/sdut/dao/AccountDao.xml" />-->
+        <!--注意！！！后两种方式要求接口类的名称和映射文件的名称必须相同，如不相同，就会报Invalid bound statement (not found)错误-->
+        <!--<mapper class="cn.sdut.dao.AccountDao" />-->
         <package name="cn.sdut.dao"/>
     </mappers>
 </configuration>
