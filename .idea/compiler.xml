@@ -10,6 +10,7 @@
         <module name="chapter03" />
         <module name="chapter02" />
         <module name="chapter01" />
+        <module name="chapter11" />
         <module name="chapter06" />
         <module name="chapter05" />
       </profile>
