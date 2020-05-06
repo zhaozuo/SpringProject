@@ -12,5 +12,7 @@
 </head>
 <body>
 <h1>入门成功</h1>
+request域：${requestScope.msg}<br>
+session域：${sessionScope.msg}
 </body>
 </html>
