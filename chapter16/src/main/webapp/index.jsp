@@ -16,5 +16,6 @@
     选择文件：<input type="file" name="upload"/><br>
     <input type="submit" value="上传" />
 </form>
+<a href="user/testException">testException</a>
 </body>
 </html>

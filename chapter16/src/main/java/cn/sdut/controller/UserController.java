@@ -1,5 +1,6 @@
 package cn.sdut.controller;
 
+import cn.sdut.exception.SysException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +13,20 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping("/testException")
+    public String testException() throws SysException {
+        System.out.println("testException执行了...");
+        try {
+            // 模拟异常
+            int a = 1 / 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SysException("查询所有用户出现错误了...");
+        }
+
+        return "success";
+    }
+
     @RequestMapping("/fileUpload")
     public String fileUpload1(HttpServletRequest request, MultipartFile upload) throws IOException {
         System.out.println("SpringMVC 文件上传...");
