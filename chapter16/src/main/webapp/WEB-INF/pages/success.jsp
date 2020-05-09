@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-<h1>上传文件成功</h1>
+<h1>成功</h1>
+<%
+    System.out.println("success.jsp执行了...");
+%>
 </body>
 </html>

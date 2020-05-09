@@ -18,6 +18,25 @@
     <!--配置异常处理器-->
     <bean id="sysExceptionResolver" class="cn.sdut.exception.SysExceptionResolver" />
     <!--<mvc:resources location="/js/"  mapping="/js/**"/>-->
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--配置拦截路径-->
+            <mvc:mapping path="/user/*"/>
+            <!--配置不拦截的路径-->
+            <!--<mvc:exclude-mapping path=""/>-->
+            <!--配置拦截器对象-->
+            <bean class="cn.sdut.interceptor.MyInterceptor1" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!--配置拦截路径-->
+            <mvc:mapping path="/user/*"/>
+            <!--配置不拦截的路径-->
+            <!--<mvc:exclude-mapping path=""/>-->
+            <!--配置拦截器对象-->
+            <bean class="cn.sdut.interceptor.MyInterceptor2" />
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!--开启SpringMVC框架的注解-->
     <mvc:annotation-driven />
 </beans>

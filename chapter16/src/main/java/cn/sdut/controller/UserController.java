@@ -13,6 +13,12 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping("/testInterceptor")
+    public String testInterceptor() {
+        System.out.println("testInterceptor执行了...");
+        return "success";
+    }
+
     @RequestMapping("/testException")
     public String testException() throws SysException {
         System.out.println("testException执行了...");

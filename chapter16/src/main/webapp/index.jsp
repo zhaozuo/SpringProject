@@ -11,11 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-<h1>文件上传</h1>
+<%--<h1>文件上传</h1>
 <form action="user/fileUpload" method="post" enctype="multipart/form-data">
     选择文件：<input type="file" name="upload"/><br>
     <input type="submit" value="上传" />
-</form>
-<a href="user/testException">testException</a>
+</form>--%>
+<%--<a href="user/testException">testException</a>--%>
+<h1>拦截器</h1>
+<a href="user/testInterceptor">拦截器</a>
 </body>
 </html>
