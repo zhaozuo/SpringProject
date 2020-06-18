@@ -37,7 +37,7 @@ public class UserController {
     public String fileUpload1(HttpServletRequest request, MultipartFile upload) throws IOException {
         System.out.println("SpringMVC 文件上传...");
         // 获取要上传的文件目录
-        String path = request.getSession().getServletContext().getRealPath("/uploads");
+        String path = request.getServletContext().getRealPath("/uploads");
         // 创建File对象，向该路径上传文件
         File file = new File(path);
         // 判断路径是否存在，如不存在则创建
