@@ -3,15 +3,15 @@ package cn.sdut.controller;
 import cn.sdut.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -75,5 +75,16 @@ public class UserController {
         user.setPassword("456");
         user.setAge(13);
         return user;
+    }
+
+    @RequestMapping(value = "/ajax")
+    public @ResponseBody Map<String, String> sayHello(@RequestParam String inputName){
+        System.out.println("sayHello执行了....");
+        System.out.println("name是"+inputName);
+
+        String helloSentence = "你好，" + inputName + "同学！";
+        Map<String, String> result= new HashMap<>();
+        result.put("hello",helloSentence);
+        return result;
     }
 }
